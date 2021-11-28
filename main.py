@@ -116,10 +116,10 @@ class Storage:
 
         query = '''
             INSERT INTO posts(post_id, title, content, token)
-            VALUES(%s, \"%s\", \"%s\", \"%s\")
-            ''' % (post_id, title, content, token)
+            VALUES(?, ?, ?, ?)
+            '''
 
-        c.execute(query)
+        c.execute(query, (post_id, title, content, token))
         db.commit()
 
 
